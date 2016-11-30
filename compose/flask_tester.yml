@@ -8,13 +8,3 @@ services:
             - /mnt/code/flask-tester-backend:/src
         ports:
             - "80:80"
-        networks:
-            - flask_tester_net
-networks:
-    flask_tester_net:
-        driver: bridge
-        ipam:
-            driver: default
-            config:
-              - subnet: 172.1.0.0/16
-                gateway: 172.1.0.1
