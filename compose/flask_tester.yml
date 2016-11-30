@@ -1,10 +1,18 @@
 version: '2'
 services:
-    controller:
+    flask_tester_app:
         container_name: flask_tester
         hostname: flask_tester
-        image: flask_tester:0.1
+        image: flask_tester:0.2
         volumes:
             - /mnt/code/flask-tester-backend:/src
         ports:
             - "80:80"
+    redis:
+        container_name: flask_tester_redis
+        hostname: flask_tester_redis
+        image: redis
+        volumes:
+            - ../data/redis:/var/lib/redis
+        ports:
+            - "6379:6379"
