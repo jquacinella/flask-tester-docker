@@ -15,5 +15,8 @@ run pip install uwsgi flask redis
 # We are exposing a network port
 expose 80 
 
+run mkdir /src
+add images/flask_tester/src /src/
+
 # uWSGI command that this container is running
 cmd ["/usr/local/bin/uwsgi", "--http", ":80", "--wsgi-file", "/src/wsgi.py", "--py-autoreload", "1"]

@@ -1,0 +1,21 @@
+version: '2'
+services:
+    flask_tester_app:
+        container_name: flask_tester
+        hostname: flask_tester
+        image: 734741432590.dkr.ecr.us-east-1.amazonaws.com/flask_tester_app:0.3
+        volumes:
+            - /mnt/code/flask-tester-backend:/src
+        ports:
+            - "80:80"
+        depends_on:
+            - redis
+    redis:
+        container_name: flask_tester_redis
+        hostname: flask_tester_redis
+        image: redis:3.2.5
+        command: redis-server --appendonly yes
+        volumes:
+            - /mnt/code/flask-tester-docker/data/redis:/data
+        ports:
+            - "6379:6379"
