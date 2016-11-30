@@ -16,4 +16,4 @@ run pip install uwsgi flask redis
 expose 80 
 
 # uWSGI command that this container is running
-cmd ["/usr/local/bin/uwsgi", "--http", ":80", "--wsgi-file", "/src/wsgi.py"]
+cmd ["/usr/local/bin/uwsgi", "--http", ":80", "--wsgi-file", "/src/wsgi.py", "--py-autoreload", "1"]
