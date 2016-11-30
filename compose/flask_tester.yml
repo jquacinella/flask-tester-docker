@@ -8,6 +8,8 @@ services:
             - /mnt/code/flask-tester-backend:/src
         ports:
             - "80:80"
+        depends_on:
+            - redis
     redis:
         container_name: flask_tester_redis
         hostname: flask_tester_redis
